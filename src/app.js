@@ -4,9 +4,12 @@ import banner from './components/banner';
 
 class App extends Component {
     render() {
-        return 
+        return (
             <div className='App'>
                 <Banner/>
             </div>
+        );
     }
 }
+
+export default App;
