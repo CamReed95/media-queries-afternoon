@@ -1,38 +1,43 @@
-import React from 'react';
+import React from 'react'
 
-class Banner extends React.Component {
-  render() {
-      
-    return (
-      <header>
-        <div>
-                <div className='logo'>
-                    <a href='#'>Start Bootstrap</a>
-                </div>
-                {/* <button onClick={() => this.toggleSideBarFunc()} className='hide'> Click!</button>
-                <nav className={this.state.toggleSideBar ? 'show': ''}> */}
-                    <ul>
-                        <li>
-                            <a href='#/services'>Services</a>
-                        </li>
-                        <li>
-                            <a href='#/portfolio'>Portfolio</a>
-                        </li>
-                        <li>
-                            <a href='#/about'>About</a>
-                        </li>
-                        <li>
-                            <a href='#/team'>Team</a>
-                        </li>
-                        <li>
-                            <a href='#/contact'>Contact</a>
-                        </li>
-                    </ul>
-                {/* </nav> */}
-        </div>
-      </header>
-    );
-  }
+
+
+export default class Banner extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            hideSidebar: true
+        }
+    }
+
+    toggleSidebar() {
+        this.setState((prev) => {
+            return {
+                hideSidebar: !prev.hideSidebar
+            }
+        })
+        console.log(this.state.hideSidebar)
+        
+    }
+    render() {
+        return (
+            <header className='header'>
+                <nav>
+                    <div className='start-bootstrap'>Start Bootstrap</div>
+                            <button className='menu-button' onClick={() => this.toggleSidebar()}>Menu <i class="fa fa-bars"></i></button>
+                            <div className={this.state.hideSidebar ? 'hide': ''}>
+                                <div className='buttons-background'>
+                                    <div className='buttons'>
+                                        <a href='/services' className='button'>SERVICES</a>
+                                        <a href='/portfolio' className='button'>PORTFOLIO</a>
+                                        <a href='/about' className='button'>ABOUT</a>
+                                        <a href='/team' className='button'>TEAM</a>
+                                        <a href='/contact' className='button'>CONTACT</a>
+                                    </div>
+                                </div>
+                            </div>
+                </nav>
+            </header>
+        )
+    }
 }
-
-export default Banner;
